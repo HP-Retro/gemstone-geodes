@@ -91,6 +91,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    ruby.vx = 170
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     diamond,
