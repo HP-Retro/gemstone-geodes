@@ -92,7 +92,224 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    ruby.vx = 170
+    if (cooldown == false) {
+        controller.moveSprite(helioite, 170, 170)
+        timer.after(10000, function () {
+            controller.moveSprite(helioite, 100, 100)
+            cooldown = true
+        })
+        timer.after(30000, function () {
+            cooldown = false
+        })
+    }
+    if (bleh == false) {
+        timer.after(1, function () {
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                a a a b a a a a f . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, obsidian, 110, 0)
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                a a a b a a a a f . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, obsidian, -110, 0)
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                a a a b a a a a f . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, obsidian, 110, -30)
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                a a a b a a a a f . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, obsidian, 110, 110)
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                a a a b a a a a f . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, obsidian, -110, 110)
+            projectile = sprites.createProjectileFromSprite(img`
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                a a a b a a a a f . . . . . . . 
+                f b b a b a b f . . . . . . . . 
+                . f b a a b f . . . . . . . . . 
+                . . f f f f . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                . . . . . . . . . . . . . . . . 
+                `, obsidian, -110, -110)
+            bleh = true
+        })
+        timer.after(10000, function () {
+            bleh = false
+        })
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . f 1 5 5 1 f . . . . . . . . . 
+        f 1 1 5 1 5 1 f . . . . . . . . 
+        5 5 5 1 5 5 5 5 f . . . . . . . 
+        f 1 1 5 1 5 1 f . . . . . . . . 
+        . f 1 5 5 1 f . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, helioite, 100, 0)
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . f b a a b f . . . . . . . . . 
+        f b b a b a b f . . . . . . . . 
+        a a a b a a a a f . . . . . . . 
+        f b b a b a b f . . . . . . . . 
+        . f b a a b f . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, obsidian, 110, 0)
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . f 9 1 1 9 f . . . . . . . . . 
+        f 9 9 1 9 1 9 f . . . . . . . . 
+        1 1 1 9 1 1 1 1 f . . . . . . . 
+        f 9 9 1 9 1 9 f . . . . . . . . 
+        . f 9 1 1 9 f . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, opal, 120, 0)
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . f 4 2 2 4 f . . . . . . . . . 
+        f 4 4 2 4 2 4 f . . . . . . . . 
+        2 2 2 4 2 2 2 2 f . . . . . . . 
+        f 4 4 2 4 2 4 f . . . . . . . . 
+        . f 4 2 2 4 f . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, ruby, 80, 0)
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . f 1 9 9 1 f . . . . . . . . . 
+        f 1 1 9 1 9 1 f . . . . . . . . 
+        9 9 9 1 9 9 9 9 f . . . . . . . 
+        f 1 1 9 1 9 1 f . . . . . . . . 
+        . f 1 9 9 1 f . . . . . . . . . 
+        . . f f f f . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, diamond, 30, 0)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -305,6 +522,12 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+let projectile: Sprite = null
+let bleh = false
+let cooldown = false
+let opal: Sprite = null
+let helioite: Sprite = null
+let obsidian: Sprite = null
 let diamond: Sprite = null
 let ruby: Sprite = null
 scene.cameraFollowSprite(ruby)
@@ -327,7 +550,7 @@ diamond = sprites.create(img`
     . . . f f 6 7 6 7 6 7 f f . . . 
     . . . . . f f 7 6 f f . . . . . 
     `, SpriteKind.Player)
-let obsidian = sprites.create(img`
+obsidian = sprites.create(img`
     . . . . . f f c c f f . . . . . 
     . . . . f a c b b c a f . . . . 
     . . . f a b b a a b b a f . . . 
@@ -345,7 +568,7 @@ let obsidian = sprites.create(img`
     . . . f f b f b f b f f f . . . 
     . . . . f f b f b f b f . . . . 
     `, SpriteKind.Player)
-let helioite = sprites.create(img`
+helioite = sprites.create(img`
     . . . . . f f 7 7 f f . . . . . 
     . . . . f 5 7 5 5 7 5 f . . . . 
     . . . f 1 5 7 5 5 7 5 1 f . . . 
@@ -381,7 +604,7 @@ ruby = sprites.create(img`
     4 4 . f f 2 4 2 4 2 4 f f . 4 4 
     4 4 . . . f f 4 2 f f . . . 4 4 
     `, SpriteKind.Player)
-let opal = sprites.create(img`
+opal = sprites.create(img`
     . . . . . f f 1 1 f f . . . . . 
     . . . . f 9 1 6 6 1 9 f . . . . 
     . . . f 9 6 6 1 1 6 6 9 f . . . 
@@ -399,8 +622,10 @@ let opal = sprites.create(img`
     . . . f f 9 9 9 9 9 9 f f . . . 
     . . . . . f f 9 9 f f . . . . . 
     `, SpriteKind.Player)
-controller.moveSprite(ruby, 80, 80)
-controller.moveSprite(opal, 100, 100)
-controller.moveSprite(obsidian, 100, 100)
-controller.moveSprite(helioite, 120, 120)
+controller.moveSprite(helioite, 100, 100)
 controller.moveSprite(diamond, 30, 30)
+controller.moveSprite(ruby, 80, 80)
+controller.moveSprite(opal, 120, 120)
+controller.moveSprite(obsidian, 110, 110)
+cooldown = false
+bleh = false
