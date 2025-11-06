@@ -92,7 +92,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    let opals = false
     if (cooldown == false) {
         controller.moveSprite(helioite, 170, 170)
         timer.after(10000, function () {
@@ -207,9 +206,10 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 .....9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999.......
                 ....................................................................................................
                 `, obsidian, 110, 0)
+            opals = true
         })
         timer.after(10000, function () {
-            bleh = false
+            opals = false
         })
     }
     if (bleh == false) {
@@ -360,7 +360,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
                 `, obsidian, 0, -110)
             bleh = true
         })
-        timer.after(10000, function () {
+        timer.after(20000, function () {
             bleh = false
         })
     }
@@ -669,6 +669,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 let projectile: Sprite = null
+let opals = false
 let bleh = false
 let cooldown = false
 let opal: Sprite = null
@@ -720,6 +721,24 @@ diamond = sprites.create(img`
     . . e f 8 8 8 9 9 8 8 8 f e . . 
     . . . f f 6 7 6 7 6 7 f f . . . 
     . . . . . f f 7 6 f f . . . . . 
+    `, SpriteKind.Player)
+let emerald = sprites.create(img`
+    . . . . . f f 6 6 f f . . . . . 
+    . . . . f 1 1 6 6 1 1 f . . . . 
+    . . . f 7 6 6 1 1 6 6 7 f . . . 
+    . . f 1 7 7 1 6 6 1 7 7 1 f . . 
+    . . f 7 7 1 f 6 6 f 1 7 7 f . . 
+    . f 7 7 1 1 1 f f 1 1 1 7 7 f . 
+    . f 7 7 d f d d d d f d 7 7 f . 
+    . f 6 6 d d f d d f d d 6 6 f . 
+    . f 6 6 d f d d d d f d 6 6 f . 
+    f f 6 6 d d d f f d d d 6 6 f f 
+    f 6 6 f f f d f f d f f f 6 6 f 
+    . f d d f 5 7 7 7 7 5 f d d f . 
+    . . d 1 5 7 7 5 5 7 7 5 1 d . . 
+    . . d f 5 1 5 1 5 1 5 5 f d . . 
+    . . . f f 5 1 5 1 5 1 f f . . . 
+    . . . . . f 5 1 5 1 f . . . . . 
     `, SpriteKind.Player)
 obsidian = sprites.create(img`
     . . . . . f f c c f f . . . . . 
@@ -800,5 +819,5 @@ controller.moveSprite(opal, 120, 120)
 controller.moveSprite(obsidian, 110, 110)
 cooldown = false
 bleh = false
-bleh = false
+opals = false
 info.setLife(100)
